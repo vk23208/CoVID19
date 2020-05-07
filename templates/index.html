@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+	  google.charts.load("current", {packages:["corechart"]});
+	  google.charts.setOnLoadCallback(drawChart);
+	  function drawChart() {
+	    var data = google.visualization.arrayToDataTable([
+	      ['Task', 'Hours per Day'],
+	      ['Coronavirus Cases',3821386],
+	      ['Deaths',      265112],
+	      ['Recovered',   1303468]
+	    ]);
+
+	    var options = {
+	      title: 'WorldWide Percentage',
+	      is3D: true,
+	    };
+
+	    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+	    chart.draw(data, options);
+	  }
+	</script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Data Analysis for CoVID19</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename = 'css/modern-business.css')}}" rel="stylesheet">
+
+</head>
+
+<style>
+body {
+    background-image: url('https://www.jesusislife.in/wp-content/uploads/2019/05/Savin-NY-Website-Background-Web.jpg'); 
+    background-size: cover;
+}
+
+#maintable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+#maintable tr {
+font-size: 150%;
+font-family: Arial;
+
+}
+
+#piechart_3d {
+width: 700px;
+height: 400px;
+
+}
+
+</style>
+<body>
+  
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="my-4">Information for Corona Virus</h1>
+		<table style="width:100%" , id= "maintable">
+		  <tr>
+		  	<th> </th>
+		    <th>Coronavirus Cases</th>
+		    <th>Deaths</th>
+		    <th>Recovered</th>
+		  </tr>
+		  <tr>
+		    <td>World</td>
+		    <td>{{ worldcases }}</td>
+		    <td>{{ worldeaths }}</td>
+		    <td>{{ worldrecovered }}</td>
+		  </tr>
+		  <tr>
+		    <td>India</td>
+		    <td>{{ indiacases }}</td>
+		    <td>{{ indiadeaths }}</td>
+		    <td>{{ indiarecovered }}</td>
+		  </tr>
+		</table>
+
+
+
+    <!-- My PIE CHART-->
+	<div id="piechart_3d"></div>
+
+
+<!-- Features Section -->
+<div class="row">
+  <div class="col-lg-6">
+    <h2>Coronavirus disease (COVID‑19)</h2>
+    <h3><strong>How it spreads</strong></h3>
+    <p>The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces.</p>
+    <p>You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a contaminated surface and then your eyes, nose or mouth. </p>
+  </div>
+  <div class="col-lg-6">
+    <img class="img-fluid rounded" src="https://hagertyconsulting.com/wp-content/uploads/2020/01/Coronavirus.jpg">
+  </div>
+</div>
+
+
+        <!-- Features Section -->
+<div class="row">
+  <div class="col-lg-6"><img class="img-fluid rounded" src="https://ik.imagekit.io/76lotfnwa0/wp-content/uploads/2020/03/Coronavirus-poster-external-snippet.jpg"></div>
+   	<div class="col-lg-6">
+    <h3><strong>Symptoms</strong></h3>
+    <p>Common symptoms:</p>
+    <li>fever</li>
+    <li>tiredness</li>
+    <li>drycough</li>
+    <p>Some people may experience:</p>
+	<li>aches and pains</li>
+    <li>nasal congestion</li>
+    <li>runny nose</li>
+    <li>sore throat</li>	
+  	<li>diarrhoea</li>
+  	<p>On average it takes 5–6 days from when someone is infected with the virus for symptoms to show, however it can take up to 14 days.People with mild symptoms who are otherwise healthy should self-isolate. Seek medical attention if you have a fever, a cough, and difficulty breathing.</p>
+  	</div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="row mb-4">
+  <div class="col-md-8">
+    <p><strong>Safety and prevention tips</strong></p> 
+    <h1><strong>STAY HOME.</strong></h1>
+    <h1><strong>SAVE LIVES.</strong></h1>
+    <h5>Help stop coronavirus</h5>
+    <li>STAY home</li>
+    <li>KEEP a safe distance</li>
+    <li>WASH hands often</li>
+    <li>COVER your cough</li>
+    <li>SICK? Call the helpline</li>
+  </div>
+  <div class="col-md-4"><a class="btn btn-lg btn-secondary btn-block" href="https://www.mohfw.gov.in/">More Info</a></div>
+</div>
+</div>
+  <!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+<div class="container">
+  <p class="m-0 text-center text-white">Copyright &copy;Vishal Rana 2020</p>
+</div>
+<!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ url_for('static', filename = 'vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+</body>
+
+</html>
